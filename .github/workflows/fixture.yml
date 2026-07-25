@@ -1,0 +1,16 @@
+name: Ground Truth P53-E01
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    if: ${{ false }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      AGENT_OUTPUT: ground-truth-agent-output
+    steps:
+      - name: Validate schema before consumption
+        run: npx ajv-cli validate -s schema.json -d agent-output.json
+      - run: ./scripts/consume.sh "$(jq -r .decision agent-output.json)"

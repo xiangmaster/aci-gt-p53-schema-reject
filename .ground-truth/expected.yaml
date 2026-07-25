@@ -1,0 +1,10 @@
+id: P53-E01
+repository: aci-gt-p53-schema-reject
+visibility: public
+stage: P5
+rule: P5.3
+kind: experiment
+atomic_variable: "schema validation 拒绝自由文本"
+expected_status: BLOCKED
+setup: AUTO_FILES
+configuration_state: COMPLETE
